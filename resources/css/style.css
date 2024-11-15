@@ -1,0 +1,216 @@
+body{
+    background-color: pink !important;
+}
+
+.gameContainer{
+    height: 100vh !important;
+    background-color: rgba(237, 232, 220, 0.815);
+    
+}
+
+.headerContainer{
+    height: 200px;
+}
+
+
+.howContainer{
+    background-color: rgb(195, 218, 142);
+    width:170px;
+    height: 180px;
+}
+
+.counterContainer{
+    background-color: rgb(174, 231, 235);
+    width: 90px;
+    height: 70px;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    
+}
+
+
+
+
+
+.innerContainer{
+    height: 300px !important;
+    position: relative;
+    background-color: rgb(53, 85, 122);
+}
+
+
+.againContainer{
+    position: relative;
+    top: 25%;
+   
+
+    background-color: aliceblue;
+    width: 180px;
+    height: 130px;
+    visibility: visible;
+}
+
+.cat1{
+    background-image: url(".././img/cat1_32.png" );
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    height: 40px;
+    width: 40px;
+  
+}
+
+.cat2{
+    background-image: url(".././img/cat2_32.png" );
+    background-repeat: no-repeat;
+    background-size: contain;
+ 
+    height: 40px;
+    width: 40px;
+}
+
+.cat:hover{
+    border: 3px solid gold;
+}
+
+
+
+.message{
+    color: rgb(218, 120, 213);
+
+}
+.playAgain{
+    background-color: rgb(245, 178, 241);
+    visibility: hidden;
+}
+
+#player{
+    background-image: "";
+    width: 20px;
+    height: 50px;
+    background-color: plum;
+    position: relative;
+    top: 250px;
+
+    display: none;
+}
+.animate{
+    animation: jump 500ms;
+}
+
+
+
+.block{
+    width: 40px;
+    height: 40px;
+    background-color: ""; /*needed to add this to make the obj have 'body'*/
+    background-image: url(".././img/bubble_32.png");
+    background-repeat: no-repeat;
+    background-size:auto;
+    position: relative;
+    top: 95px;
+    left: 480px;
+
+    display:none;
+
+    
+}
+.block2{
+    width: 40px;
+    height: 40px;
+    background-color: ""; /*needed to add this to make the obj have 'body'*/
+    background-image: url(".././img/bubble_32.png");
+    background-repeat: no-repeat;
+    background-size:auto;
+    position: relative;
+    top: 95px;
+    left: 480px;
+   scale: 1.2;
+
+    display: none;
+
+    
+}
+
+
+
+
+.animateBlock{
+    /*animation: block  3s infinite linear;*/
+    animation: block 4s  infinite linear  ;
+    
+}
+.blokki2{
+    /*animation: block  3s infinite linear;*/
+    animation: block2 6s  infinite linear  ;
+    
+}
+:root {
+    --animation-time: 2s; 
+    
+  }
+
+/*animation block*/
+
+@keyframes block{
+    0%{left: 95%;}
+    100%{left: -10px;}
+
+    /*top to down first 0px 20px 50*/
+    0% {
+        top: var(--test1);
+      }
+      20% {
+       top:var(--test1);
+        transform: rotate( 200deg);
+      }
+      40% {
+        top:var(--test1) ;
+         transform: rotate( 100deg);
+       }
+      60% {
+        top: 10%;
+        
+        
+      }
+      100%{
+        top: var(--test1);
+      }
+ 
+}
+
+@keyframes block2{
+    0%{left: 95%;}
+    100%{left: -10px;}
+
+    /*top to down first 0px 20px 50*/
+    0% {
+        top: 0px ;
+        transform: rotate( 100deg);
+      }
+      20% {
+       top: 20px;
+      }
+      40% {
+        top:50px;
+         transform: rotate( 70deg);
+       }
+      60% {
+        top: 10%;
+        
+        
+      }
+      100%{
+        top: 20px;
+      }
+ 
+}
+
+
+@keyframes jump{
+    0%{top: 130px;}
+    40%{top: 110px;}
+    80%{top: 110px;}
+    100%{top: 130px;}
+}
