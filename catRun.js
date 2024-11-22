@@ -1,6 +1,7 @@
 let player = document.getElementById("player");
 let innerContainer = document.querySelector(".innerContainer")
 const againContainer = document.querySelector(".againContainer");
+const counterContainer = document.querySelector(".counterContainer");
 let block = document.querySelector(".block");
 let block2 = document.querySelector(".block2");
 
@@ -14,46 +15,30 @@ let cats = document.querySelectorAll(".cat");
 //adds eventlistener to all (2) cat buttons
 cats.forEach(function (element){
     
-       
     
-//console.log(element.classList);
-    
-  /*  if(element.classList.contains("cat2")){
-        player.style.backgroundColor = "white";
-    }
-    
-    if(element.classList.contains("cat2")){
-        player.style.backgroundColor = "brown";
-    }*/
 
-        element.addEventListener("click", startGame);
-        
+        element.addEventListener("click", getName);
           
-  /*  
-function getName(e){
-    element.onclick = e.target.className;
-    console.log(element);
-    if(element.target.className === "cat1"){
-        player.style.backgroundColor = "white";
-    }else     if(element.classList.contains("cat2")){
-        player.style.backgroundColor = "brown";
-    }
- 
-}*/
-   
 
-
-        
-           
-        
+   //listens to the buttons, checks their names and changes the sprite
+       function getName(e){
+            element = e.target.className;
             
-        
+            console.log(element);
+            if(e.target.classList.contains( "cat1")){
+                
+                player.style.backgroundColor = "white";
                 
                 
-            
-        
-    
+            }else  if(e.target.classList.contains( "cat2")){
+                player.style.backgroundColor = "brown";
+            }
+              
+            startGame();
+        }             
 
+
+               
     
 
 
@@ -67,9 +52,8 @@ function startGame(){
 
 
     block.style.display = "block";
-    
-   
     player.style.display = "block";
+    counterContainer.style.visibility = "visible";
     againContainer.style.visibility = "hidden";
 
 //counter, loops through the two count elements and updates them 
@@ -97,7 +81,7 @@ document.body.addEventListener('keypress',  event => {
 }); 
 
 //for mobile TEST
-document.body.addEventListener("touchstart", event =>{
+innerContainer.addEventListener("touchstart", event =>{
     jump();
 })
 
@@ -126,7 +110,8 @@ setInterval(function(){
     
    
         const root = document.querySelector(":root");
-        let random = Math.floor(Math.random() * 100);
+        let random = Math.floor(Math.random() * 150);
+       
                  
         root.style.setProperty("--test1", random + "px");
         
@@ -164,8 +149,8 @@ setInterval(function(){
 
     let blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
     let blockLeft2 = parseInt(window.getComputedStyle(block2).getPropertyValue("left"));
-//|| blockLeft2 <20 && blockLeft2>0 && playerTop>=130 
-    if((blockLeft <50 && blockLeft>0 && playerTop>=130) || (blockLeft2 <50 && blockLeft2>0 && playerTop>=130)){
+//|| ((blockLeft <35 && blockLeft>0 && playerTop>=130) || (blockLeft2 <35 && blockLeft2>0 && playerTop>=130))
+    if((blockLeft <35 && blockLeft>0 && playerTop>=130) || (blockLeft2 <35 && blockLeft2>0 && playerTop>=130)){
 
         const againButton = document.querySelector(".playAgain");
         const messsage = document.querySelector(".message")
@@ -189,7 +174,7 @@ setInterval(function(){
         location.reload()
     })
             
-    }else if((blockLeft <50 && blockLeft>40)  ||( blockLeft2 <50 && blockLeft2 >40)){
+    }else if((blockLeft <35 && blockLeft>28)  || ( blockLeft2 <33 && blockLeft2 >28)){
         counter  ++; //++ works better than +=1
           
     }
